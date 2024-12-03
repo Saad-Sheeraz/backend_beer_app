@@ -1,0 +1,8 @@
+Tech Stack : Nodejs,Express,TypeScript,MongoDB
+
+Time Breakdown:
+- Setting up the project and configuring tools: 30 minutes
+- Creating the database schema and connecting MongoDB: 1 hour
+- Developing the API routes: 2 hours
+- Testing and debugging: 1.5 hours
+- Writing documentation and cleanup: 30 minutes
