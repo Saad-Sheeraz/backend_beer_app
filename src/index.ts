@@ -2,7 +2,8 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { connectToDatabase } from "./utils/database";
-import beerRoutes from "./routes/beerRoutes";
+import beerRoutes from "./routes/beer.routes";
+import beerTypeRoutes from "./routes/beerType.routes";
 import { AppError, errorHandler } from "../src/middlewares/errorhandling";
 
 dotenv.config();
@@ -32,6 +33,7 @@ app.get("/example", (req, res, next) => {
 });
 
 app.use("/api", beerRoutes);
+app.use("/api/beertypes", beerTypeRoutes);
 
 const port = process.env.PORT || 5000;
 
