@@ -4,6 +4,7 @@ import BeerService from "../services/beer.services";
 class BeerController {
   async createBeer(req: Request, res: Response) {
     try {
+      console.log("reqbody", req.body);
       const { name, type, ratings } = req.body;
       const beer = await BeerService.createBeer(name, type, ratings);
       return res.status(201).json(beer);

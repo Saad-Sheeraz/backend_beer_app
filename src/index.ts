@@ -4,7 +4,10 @@ import cors from "cors";
 import { connectToDatabase } from "./utils/database";
 import beerRoutes from "./routes/beer.routes";
 import beerTypeRoutes from "./routes/beerType.routes";
+import bookRoutes from "./routes/books.routes";
+import authorRoutes from "./routes/author.routes";
 import { AppError, errorHandler } from "../src/middlewares/errorhandling";
+import bodyParser = require("body-parser");
 
 dotenv.config();
 
@@ -13,6 +16,13 @@ const app: Express = express();
 app.use(cors());
 app.use(errorHandler);
 app.use(express.json());
+app.use(bodyParser.json({ limit: "100mb" }));
+app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
+// app.use(bodyParser.urlencoded())
+
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
 
 connectToDatabase();
 
@@ -34,7 +44,10 @@ app.get("/example", (req, res, next) => {
 
 app.use("/api", beerRoutes);
 app.use("/api/beertypes", beerTypeRoutes);
+//For Books and Authors
 
+app.use("/api2", bookRoutes);
+app.use("/api3", authorRoutes);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {

@@ -42,4 +42,11 @@ class BeerService {
   }
 }
 
+function test() {
+  var x = 10;
+  x = 20; // Allowed
+  var x = 30; // Allowed
+  console.log(x);
+}
+test();
 export default new BeerService();
